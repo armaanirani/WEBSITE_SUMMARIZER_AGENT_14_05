@@ -1,0 +1,5 @@
+pydantic-ai
+pydantic-ai-slim[mcp]
+pydantic-ai-slim[groq]
+mcp-server-fetch
+python-dotenv
