@@ -7,9 +7,17 @@ from pydantic_ai.mcp import MCPServerStdio
 
 # Load environment variables from .env file
 load_dotenv()
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 # Defining the MCP server
 mcp_fetch_server = MCPServerStdio(
     command='python',
     args=['-m', 'mcp_server_fetch']
+)
+
+# Defining the agent
+agent = Agent(
+    model="groq:llama-3.3-70b-versatile",
+    api_key=GROQ_API_KEY,
+    mcp_server=[mcp_fetch_server],
 )
